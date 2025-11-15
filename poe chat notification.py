@@ -134,7 +134,7 @@ class LogFileHandler(FileSystemEventHandler):
 
 
 if __name__ == "__main__":
-    print("🔍 Ожидание входящих трейдов... (можно свернуть)")
+    print("🔍 Waiting for incoming trades...")
     event_handler = LogFileHandler(LOG_FILE_PATH)
     observer = Observer()
     observer.schedule(event_handler, path=os.path.dirname(LOG_FILE_PATH), recursive=False)
@@ -147,4 +147,5 @@ if __name__ == "__main__":
             time.sleep(1)
     except KeyboardInterrupt:
         observer.stop()
+
     observer.join()
